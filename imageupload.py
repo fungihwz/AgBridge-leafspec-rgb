@@ -7,18 +7,21 @@ import io
 
 
 st.set_page_config(page_title="Leaf DGCI Classroom", layout="centered")
-
+# Images at top
+st.image("images/banner.jpg", use_container_width=True)
 # Header
-st.title("🌿 Leaf Health Teaching Tool")
+st.title("🌿 Our Garden Guardian!")
+st.header("Uncovering secrets to healthy plant")
+
 st.markdown("""
-Learn how to:
-1. Upload and visualize a leaf photo  
-2. Compute **DGCI** and predict chlorophyll  
-3. Take a quiz on plant health concepts  
+The goal of this app is to 
+measure in a non-destructive way the Dark Green Color Index of leaf from its image.  
+Refer to your teacher’s instructions on how you should take photos of leaves and where to record the results. 
+Make sure to record the results of a leaf before uploading a new image. 
 """)
 
 # SECTION 1: Upload + DGCI computation
-st.header("1. Upload Leaf Image")
+st.header("Upload Leaf Image")
 uploaded = st.file_uploader("Upload a leaf image (jpg/png)", type=["jpg", "jpeg", "png"])
 if uploaded:
     # img = Image.open(uploaded).convert("RGB")
@@ -86,24 +89,11 @@ if uploaded:
 
 
 
-# SECTION 2: Teaching Content
-st.header("2. How It Works")
+st.markdown("""
+This app and its accompanying unit are designed by Sopheak Seng (sengs@purdue.edu) and Hanwei Zhou (zhou1013@purdue.edu) as part of the AgBridge project. 
+The project is a part of IoT4Ag and funded by the National Science Foundation. 
+""")
 
-# SECTION 3: Quiz
-st.header("3. Quick Quiz")
-if "quiz_done" not in st.session_state:
-    st.session_state.quiz_done = False
-
-if not st.session_state.quiz_done:
-    q1 = st.radio("1. A **lower** DGCI value indicates a leaf that is:", 
-                  ["Deep green (healthy)", "Yellow or chlorotic", "Bright red/purple"])
-    q2 = st.radio("2. DGCI uses images converted to:", 
-                  ["RGB color space", "HSV color space", "L*a*b color space"])
-    if st.button("Submit Quiz"):
-        correct = 0
-        st.session_state.quiz_done = True
-        if q1 == "Yellow or chlorotic": correct += 1
-        if q2 == "HSV color space": correct += 1
-        st.success(f"You scored {correct}/2!")
-else:
-    st.write("✅ Quiz completed. Thanks!")
+st.markdown("""
+The accompanying unit can be found at IoT4Ag website 
+""")
