@@ -77,7 +77,7 @@ if uploaded:
         
     # --- White background pipeline ---
     hsv = cv2.cvtColor(working_img, cv2.COLOR_BGR2HSV)
-    lower_hue = np.array([20, 50, 40])
+    lower_hue = np.array([20, 55, 42])
     upper_hue = np.array([90, 255, 255])
     mask = cv2.inRange(hsv, lower_hue, upper_hue)
 
