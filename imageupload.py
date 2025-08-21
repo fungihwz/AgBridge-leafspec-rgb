@@ -129,7 +129,7 @@ if uploaded:
     with col1:
         st.metric("Mean DGCI", f"{mean_dgci:.3f}")
     with col2:
-        st.metric("Estimated SPAD", f"{spad_estimate:.2f}")
+        st.metric("Estimated SPAD (for tomato only)", f"{spad_estimate:.2f}")
 
 
     cols = st.columns(2)
